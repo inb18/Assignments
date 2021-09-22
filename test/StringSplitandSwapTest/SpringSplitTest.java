@@ -15,7 +15,7 @@ class SpringSplitTest {
   }
 
   @Test
-  public void splitInput_withStringDivisibleByParts() {
+  public void TestCase1withLongInput() {
     String expectedResult =
         "arIamthedevilofmyownworlmynameislucifermorningstIamleaderofworldsbiggestdandMynameispeakyblindercriminalgang";
     String result = stringsplit.splitAndSwapString(
@@ -26,7 +26,7 @@ class SpringSplitTest {
   }
 
   @Test
-  public void splitInput_withStringNotDivisibleByParts() {
+  public void TestCase2withLeftOverChar() {
     String expectedResult ="wnworldvilofmyoysiamade";
     String result = stringsplit.splitAndSwapString("ys i am a devil of my own world", 3);
     assertEquals(expectedResult, result);
@@ -34,10 +34,51 @@ class SpringSplitTest {
   }
 
   @Test
-  public void mergeParts_withProperAlternateArray() {
+  public void TestCase3withEqualChar() {
     String expectedResult = "ownworldevilofmyyesiamad";
     String result = stringsplit.splitAndSwapString("yes i am a devil of my own world", 3);
     assertEquals(expectedResult, result);
   }
 
+
+  @Test
+  public void TestCase4withShortInput() {
+    String expectedResult = "sey";
+    String result = stringsplit.splitAndSwapString("yes", 3);
+    assertEquals(expectedResult, result);
+  }
+  
+
+  @Test
+  public void TestCase5withLengthofStringLessThenNum() {
+    int num=4;
+    String expectedResult = "Enter a string with at least "+num+" characters";
+    String result = stringsplit.splitAndSwapString("yes", num);
+    assertEquals(expectedResult, result);
+  }
+  
+  /*
+  @Test
+  public void mergeParts_withProperAlternateArray() {
+    String expectedResult = "ownworldevilofmyyesiamad";
+    String result = stringsplit.splitAndSwapString("yes i am a devil of my own world", 3);
+    assertEquals(expectedResult, result);
+  }
+  
+
+  @Test
+  public void mergeParts_withProperAlternateArray() {
+    String expectedResult = "ownworldevilofmyyesiamad";
+    String result = stringsplit.splitAndSwapString("yes i am a devil of my own world", 3);
+    assertEquals(expectedResult, result);
+  }
+  
+
+  @Test
+  public void mergeParts_withProperAlternateArray() {
+    String expectedResult = "ownworldevilofmyyesiamad";
+    String result = stringsplit.splitAndSwapString("yes i am a devil of my own world", 3);
+    assertEquals(expectedResult, result);
+  }
+  */
 }
