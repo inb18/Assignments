@@ -51,36 +51,36 @@ public class StringSplit {
 //this function is to divide string into n parts with nearly equal string
   public static String[] splitInput(String input, int parts) {
     String inputParts[] = new String[parts];
-    int length = input.length();
-    String s = "";
-    int a = 0;
-    int p = length / parts;//length of each part of string
-    int extraChar = length - (p * parts);
+    int lengthOfinput = input.length();
+    String singlePart = "";
+    int indexOfInputPartsArray = 0;
+    int lengthOfsinglepart = lengthOfinput / parts;//length of each part of string
+    int extraChar = lengthOfinput - (lengthOfsinglepart * parts);
     int count = 0;
 
-    for (int i = 0; i < length; i++) {
+    for (int i = 0; i < lengthOfinput; i++) {
       int additionalChar = 0;
       //add char to string s uptill length of p
-      if (count < p) {
-        s = s + input.charAt(i);
+      if (count < lengthOfsinglepart) {
+        singlePart = singlePart + input.charAt(i);
         count += 1;
       } else {
         //this is for those extra char that are left over when we divide length of string with parts
         if (extraChar > 0) {
           additionalChar = 1;
-          s = s + input.charAt(i);
+          singlePart = singlePart + input.charAt(i);
           extraChar -= 1;
         }
-        inputParts[a++] = s;
+        inputParts[indexOfInputPartsArray++] = singlePart;
         count = 1;
-        s = "";
+        singlePart = "";
         if (additionalChar == 1)
-          s = s + input.charAt(i += 1);
+          singlePart = singlePart + input.charAt(i += 1);
         else
-          s = s + input.charAt(i);
+          singlePart = singlePart + input.charAt(i);
       }
     }
-    inputParts[a++] = s;
+    inputParts[indexOfInputPartsArray++] = singlePart;
     return inputParts;
   }
 
